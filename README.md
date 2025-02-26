@@ -1,59 +1,45 @@
-# Amazon Customer Reviews Sentiment Analysis
+# Amazon Fine Food Reviews Sentiment Analysis
 
 ## Overview
-This project performs sentiment analysis on Amazon customer reviews. It processes text data by cleaning, tokenizing, removing stopwords, stemming, and applying sentiment analysis using VADER (Valence Aware Dictionary and sEntiment Reasoner). The results are then compared with the original sentiment labels derived from review scores.
+This project focuses on sentiment analysis using the Amazon Fine Food Reviews dataset. The goal is to analyze customer reviews and determine their sentiment using various machine learning techniques.
 
 ## Dataset
-The dataset consists of Amazon customer reviews, including:
-- **Review Text**: Customer feedback
-- **Review Score**: Numeric rating (used to determine original sentiment)
+The dataset used in this project is the [Amazon Fine Food Reviews dataset](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews). It contains reviews of fine foods from Amazon, including user ratings, text reviews, and metadata.
 
-## Preprocessing Steps
-1. **Text Cleaning**:
-   - Remove URLs, HTML tags, punctuation, and numbers
-   - Convert text to lowercase
-   - Remove extra whitespace
+## Features
+- **Id**: Unique identifier for each review
+- **ProductId**: Unique identifier for each product
+- **UserId**: Unique identifier for each user
+- **ProfileName**: Name of the user
+- **HelpfulnessNumerator**: Number of users who found the review helpful
+- **HelpfulnessDenominator**: Number of users who indicated whether they found the review helpful
+- **Score**: Rating given by the user (1 to 5)
+- **Time**: Timestamp for the review
+- **Summary**: Short summary of the review
+- **Text**: Full text of the review
 
-2. **Tokenization**:
-   - Split text into words
-
-3. **Stopword Removal**:
-   - Eliminate common words that don’t contribute to sentiment (e.g., "the", "is")
-
-4. **Stemming**:
-   - Reduce words to their root form using `PorterStemmer`
-
-## Sentiment Analysis
-- **VADER SentimentIntensityAnalyzer** assigns polarity scores to reviews.
-- The sentiment labels are determined as:
-  - Positive: `compound score > 0.05`
-  - Neutral: `-0.05 <= compound score <= 0.05`
-  - Negative: `compound score < -0.05`
-
-## Results
-- Sentiment classification from VADER is compared to the original sentiment derived from review scores.
-- Visualizations are used to analyze discrepancies.
+## Objective
+The main objectives of this project include:
+- Data preprocessing and cleaning
+- Exploratory Data Analysis (EDA)
+- Feature engineering
+- Applying machine learning models for sentiment classification
+- Evaluating model performance
 
 ## Installation
-To run this project, install the required dependencies:
+To run this project, install the required dependencies using:
 ```bash
-pip install nltk pandas matplotlib seaborn
+pip install -r requirements.txt
 ```
 
 ## Usage
-Run the script to analyze sentiment:
+Run the main script to preprocess data and train models:
 ```bash
-python sentiment_analysis.py
+python main.py
 ```
 
-## Future Improvements
-- Use a machine learning-based sentiment classifier (e.g., Logistic Regression, Naïve Bayes, or BERT).
-- Fine-tune sentiment thresholds for better accuracy.
-- Expand preprocessing with lemmatization instead of stemming.
+## Results
+The performance of different models is evaluated using accuracy, precision, recall, and F1-score.
 
-## License
-This project is open-source and available under the MIT License.
 
-## Contact
-For any questions or contributions, feel free to reach out!
 
